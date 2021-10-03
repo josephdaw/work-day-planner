@@ -13,6 +13,11 @@ textarea {
   padding: 10px;
 }
 
+td {
+  padding: 15px;
+}
+
+/* class selectors */
 .jumbotron {
   text-align: center;
   background-color: transparent;

@@ -16,6 +16,12 @@ function displayTimeBlocks(){
         let momentHour = workHours[i];
         let hour = moment(momentHour, "hh").format("h a");
         console.log(hour);
-        $("#time-block-container").append(`<tr><td>${hour}</td></tr>`);
+        $("#time-block-container").append(`<tr><th scope="row">${hour}</th></tr>`);
     };
 };
+
+function init(){
+    displayTimeBlocks();
+};
+
+init();
