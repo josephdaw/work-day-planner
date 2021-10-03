@@ -16,7 +16,8 @@ function displayTimeBlocks(){
         let momentHour = workHours[i];
         let hour = moment(momentHour, "hh").format("h a");
         console.log(hour);
-        $("#time-block-container").append(`<tr><th scope="row">${hour}</th></tr>`);
+        $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td></td><td><button type="button" class="btn btn-success">Success</button></td></tr>`);
+        // $("#time-block-container").children().children().append(`<button type="button" class="btn btn-success save-btn">Save</button>`);
     };
 };
 
