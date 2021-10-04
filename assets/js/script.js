@@ -13,7 +13,7 @@ $('#time-block-container').on('click', '.btn-save', getInput);
 setInterval(timeCheck, 15000);
 
 // create hours from 9am to 5pm
-for (i = 15; i <= 24; i++) {
+for (i = 9; i <= 17; i++) {
     workHours.push({
         hour: i,
         task: ""
@@ -70,7 +70,7 @@ function getInput(event) {
 
 function timeCheck() {
     // get current hour
-    let hour = moment().format('H')
+    let hour = parseInt(moment().format('H'));
 
     $('tr').each(function () {
         // remove previous classes
@@ -79,7 +79,7 @@ function timeCheck() {
         $(this).removeClass('future');
 
         // get id from text input
-        let id = $(this).children().children('textarea').attr('id')
+        let id = parseInt($(this).children().children('textarea').attr('id'))
 
         // apply formatting based on id
         if (id < hour) {
