@@ -6,12 +6,28 @@ $("#currentDay").text(currentDay);
 // create array of work hours
 let workHours = [];
 
+// event listener on table - targeting click on 'save button'
+$('#time-block-container').on('click', '.btn-save', getInput);
+
 // create hours from 9am to 5pm
 for (i = 9; i <= 17; i++) {
     workHours.push({
         hour: i,
         task: ""
     });
+};
+
+function init() {
+    // Get stored tasks from localStorage
+    var storedTasks = JSON.parse(localStorage.getItem("workHours"));
+
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storedTasks !== null) {
+        workHours = storedTasks;
+    };
+
+    // call function to display time blocks
+    displayTimeBlocks();
 };
 
 // render the time blocks to the page
@@ -25,10 +41,6 @@ function displayTimeBlocks() {
         $(`#${workHours[i].hour}`).val(workHours[i].task);
     };
 };
-
-// event listener on table - targeting click on 'save button'
-$('#time-block-container').on('click', '.btn-save', getInput);
-
 
 // get user input when 'save' button clicked
 function getInput(event) {
@@ -50,19 +62,6 @@ function getInput(event) {
 
     // save workHours in localStorage
     localStorage.setItem("workHours", JSON.stringify(workHours));
-};
-
-function init() {
-    // Get stored tasks from localStorage
-    var storedTasks = JSON.parse(localStorage.getItem("workHours"));
-
-    // If todos were retrieved from localStorage, update the todos array to it
-    if (storedTasks !== null) {
-        workHours = storedTasks;
-    };
-
-    // call function to display time blocks
-    displayTimeBlocks();
 };
 
 init();
