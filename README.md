@@ -30,7 +30,8 @@ The following animation demonstrates the application functionality:
 ## Lessons 
 
 ## Credits
-This user story is part of the [Adelaide University Coding Boot Camp](https://bootcamps.adelaide.edu.au).
+- This user story is part of the [Adelaide University Coding Boot Camp](https://bootcamps.adelaide.edu.au).
+- https://stackoverflow.com/questions/49850253/update-value-of-one-object-in-array
 
 ## License
 This project is released under the [MIT License](LICENSE)
