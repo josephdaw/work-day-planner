@@ -9,8 +9,8 @@ let workHours = [];
 // event listener on table - targeting click on 'save button'
 $('#time-block-container').on('click', '.btn-save', getInput);
 
-// check the time every 5 seconds
-setInterval(timeCheck, 5000);
+// check the time every 15 seconds
+setInterval(timeCheck, 15000);
 
 // create hours from 9am to 5pm
 for (i = 15; i <= 24; i++) {
@@ -73,6 +73,11 @@ function timeCheck() {
     let hour = moment().format('H')
 
     $('tr').each(function () {
+        // remove previous classes
+        $(this).removeClass('past')
+        $(this).removeClass('present')
+        $(this).removeClass('future');
+
         // get id from text input
         let id = $(this).children().children('textarea').attr('id')
 
