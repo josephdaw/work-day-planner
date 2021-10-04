@@ -5,29 +5,33 @@ $("#currentDay").text(currentDay);
 
 // create array of work hours
 let workHours = [];
+
 // create hours from 9am to 5pm
-for (i=9; i<=17; i++){
+for (i = 9; i <= 17; i++) {
     workHours.push({
         hour: i,
         task: ""
     });
 };
 
-function displayTimeBlocks(){
-    for(i = 0; i < workHours.length; i++){
+// render the time blocks to the page
+function displayTimeBlocks() {
+    for (i = 0; i < workHours.length; i++) {
         // console.log(workHours[i].hour);
         let momentHour = workHours[i].hour;
         let hour = moment(momentHour, "hh").format("h a");
         // console.log(hour);
         $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td><input id="${workHours[i].hour}" type="text"></input></td><td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
-        // $("#time-block-container").children().children().append(`<button type="button" class="btn btn-success save-btn">Save</button>`);
+        $(`#${workHours[i].hour}`).val(workHours[i].task);
     };
 };
 
 // event listener on table - targeting click on 'save button'
-$('#time-block-container').on('click','.btn-save', getInput);
+$('#time-block-container').on('click', '.btn-save', getInput);
 
-function getInput(event){
+
+// get user input when 'save' button clicked
+function getInput(event) {
     // find element targeted by click
     let btnClicked = $(event.target)
     // find closest user input field
@@ -42,18 +46,24 @@ function getInput(event){
     // iterate through workHours array and update 'task' information 
     // for the corresponding id
     workHours.forEach(id => {
-        if (id.hour == inputElId) 
-        id.task = text;
+        if (id.hour == inputElId)
+            id.task = text;
     });
-    
-    console.log(workHours);
 
     // save workHours in localStorage
-    
-
+    localStorage.setItem("workHours", JSON.stringify(workHours));
 };
 
-function init(){
+function init() {
+    // Get stored tasks from localStorage
+    var storedTasks = JSON.parse(localStorage.getItem("workHours"));
+
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storedTasks !== null) {
+        workHours = storedTasks;
+    };
+
+    // call function to display time blocks
     displayTimeBlocks();
 };
 
