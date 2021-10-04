@@ -17,10 +17,10 @@ for (i = 9; i <= 17; i++) {
 // render the time blocks to the page
 function displayTimeBlocks() {
     for (i = 0; i < workHours.length; i++) {
-        // console.log(workHours[i].hour);
         let momentHour = workHours[i].hour;
         let hour = moment(momentHour, "hh").format("h a");
-        // console.log(hour);
+
+        // create time blocks
         $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td><textarea id="${workHours[i].hour}" type="text"></textarea></td><td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
         $(`#${workHours[i].hour}`).val(workHours[i].task);
     };
@@ -41,8 +41,6 @@ function getInput(event) {
     // grab input field id
     let inputElId = inputEl.attr('id')
 
-    console.log(text);
-    console.log(inputElId);
     // iterate through workHours array and update 'task' information 
     // for the corresponding id
     workHours.forEach(id => {
