@@ -21,7 +21,7 @@ function displayTimeBlocks() {
         let momentHour = workHours[i].hour;
         let hour = moment(momentHour, "hh").format("h a");
         // console.log(hour);
-        $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td><input id="${workHours[i].hour}" type="text"></input></td><td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
+        $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td><textarea id="${workHours[i].hour}" type="text"></textarea></td><td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
         $(`#${workHours[i].hour}`).val(workHours[i].task);
     };
 };
@@ -35,7 +35,7 @@ function getInput(event) {
     // find element targeted by click
     let btnClicked = $(event.target)
     // find closest user input field
-    let inputEl = btnClicked.parent().parent().children().children('input')
+    let inputEl = btnClicked.parent().parent().children().children('textarea')
     // grab user input
     let text = inputEl.val().trim()
     // grab input field id
