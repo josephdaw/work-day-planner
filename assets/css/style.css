@@ -13,8 +13,16 @@ textarea {
   padding: 10px;
 }
 
+th {
+  text-align: right;
+}
+
 td {
   padding: 15px;
+}
+
+input {
+  width: 100%;
 }
 
 /* class selectors */
