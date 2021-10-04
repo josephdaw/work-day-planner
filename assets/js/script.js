@@ -9,8 +9,11 @@ let workHours = [];
 // event listener on table - targeting click on 'save button'
 $('#time-block-container').on('click', '.btn-save', getInput);
 
+// check the time every 5 seconds
+setInterval(timeCheck, 5000);
+
 // create hours from 9am to 5pm
-for (i = 9; i <= 17; i++) {
+for (i = 15; i <= 24; i++) {
     workHours.push({
         hour: i,
         task: ""
@@ -28,6 +31,7 @@ function init() {
 
     // call function to display time blocks
     displayTimeBlocks();
+    timeCheck();
 };
 
 // render the time blocks to the page
@@ -62,6 +66,25 @@ function getInput(event) {
 
     // save workHours in localStorage
     localStorage.setItem("workHours", JSON.stringify(workHours));
+};
+
+function timeCheck() {
+    // get current hour
+    let hour = moment().format('H')
+
+    $('tr').each(function () {
+        // get id from text input
+        let id = $(this).children().children('textarea').attr('id')
+
+        // apply formatting based on id
+        if (id < hour) {
+            $(this).addClass('past')
+        } else if (id == hour) {
+            $(this).addClass('present')
+        } else {
+            $(this).addClass('future');
+        };
+    });
 };
 
 init();
