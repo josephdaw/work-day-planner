@@ -41,7 +41,10 @@ function displayTimeBlocks() {
         let hour = moment(momentHour, "hh").format("h a");
 
         // create time blocks
-        $("#time-block-container").append(`<tr><th scope="row">${hour}</th><td><textarea id="${workHours[i].hour}" type="text"></textarea></td><td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
+        $("#time-block-container").append(`<tr>
+        <th scope="row">${hour}</th>
+        <td><textarea id="${workHours[i].hour}" type="text"></textarea></td>
+        <td><button type="button" class="btn btn-success btn-save">Save</button></td></tr>`);
         $(`#${workHours[i].hour}`).val(workHours[i].task);
     };
 };
