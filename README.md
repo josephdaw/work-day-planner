@@ -19,6 +19,8 @@ This project uses local storage to create a daily planner. The page utilises jav
 
 This project is deployed using GitHub pages at https://josephdaw.github.io/work-day-planner/. 
 
+![Page mock up with saved events.](assets/img/work-day-planner.png)
+
 ### User Story
 
 ```md
