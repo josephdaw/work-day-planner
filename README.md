@@ -15,9 +15,9 @@
 - [License](#license)
 
 ## Description
-This project uses local storage to create a daily planner. The page utilises javascript to create the table of hours. The tasks are stored in an array of objects which is then saved to local storage.
+This project uses local storage to create a daily planner. The page utilises JavaScript to dynamically create the table of hours. The tasks are stored in an array of objects which is then saved to local storage. The current time is highlighted red to focus the user's attention to the tasks at hand. Previous time blocks are grey, and future time blocks are green. The end of the workday, all time blocks will be grey. Before work hours the time blocks will be green.
 
-This project is deployed using GitHub pages at https://josephdaw.github.io/work-day-planner/. 
+This project is deployed using GitHub pages at https://josephdaw.github.io/workday-planner/. 
 
 ![Page mock up with saved events.](assets/img/workday-planner.png)
 
